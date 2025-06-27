@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventHub: Conecte-se com Oportunidades - Seu Portal de Eventos e Inovação</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos CSS gerais para o site */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5; /* Fundo claro para o site */
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+        header {
+            background-color: #0d1e3d; /* Azul escuro da marca */
+            color: white;
+            padding: 1.5em 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+        header p {
+            margin: 5px 0 0;
+            font-size: 1.1em;
+            font-weight: 400;
+        }
+
+        /* Seção Hero (banner principal) */
+        .hero {
+            background: linear-gradient(to right, #0d1e3d, #1a2a4e); /* Gradiente de azul */
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            margin-bottom: 40px;
+            border-radius: 0 0 15px 15px; /* Bordas arredondadas na parte inferior */
+        }
+        .hero h2 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        .hero p {
+            font-size: 1.3em;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            font-weight: 400;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #4CAF50; /* Verde vibrante para CTA */
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: #45a049;
+        }
+
+        /* Seções de conteúdo */
+        section {
+            background-color: white;
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        }
+        .section-title {
+            font-size: 2em;
+            color: #0d1e3d;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        /* Layout de grid para cards */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        .card {
+            background-color: #fafafa;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card h3 {
+            color: #1a2a4e;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        .card p {
+            font-size: 1em;
+            color: #555;
+        }
+        .card ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            margin-top: 15px;
+        }
+        .card ul li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+        .card ul li strong {
+            color: #1a2a4e;
+        }
+
+        /* Seção "Como Funciona" */
+        .how-it-works-step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            background-color: #e6f2ff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .how-it-works-step:nth-child(even) {
+            flex-direction: row-reverse; /* Alterna a ordem para um visual mais dinâmico */
+        }
+        .how-it-works-step .icon-placeholder {
+            min-width: 80px;
+            height: 80px;
+            background-color: #0d1e3d;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5em;
+            color: white;
+            margin: 0 25px;
+        }
+        .how-it-works-step:nth-child(even) .icon-placeholder {
+             margin: 0 25px; /* Ajusta margem para ordem alternada */
+        }
+        .how-it-works-step .step-content {
+            flex-grow: 1;
+        }
+        .how-it-works-step .step-content h3 {
+            color: #0d1e3d;
+            margin-top: 0;
+            font-size: 1.6em;
+            font-weight: 600;
+        }
+        .how-it-works-step .step-content p {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+
+        /* Seção "Onde Estamos e Para Onde Vamos" com lista numerada */
+        .roadmap-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+            max-width: 800px;
+        }
+        .roadmap-list li {
+            background-color: #e6f2ff; /* Azul claro */
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 5px solid #0d1e3d;
+            border-radius: 5px;
+            font-size: 1.1em;
+            color: #333;
+            display: flex;
+            align-items: center;
+        }
+        .roadmap-list li span {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #0d1e3d;
+            margin-right: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0d1e3d;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+            border-radius: 15px 15px 0 0; /* Bordas arredondadas na parte superior */
+        }
+        footer p {
+            margin: 0;
+            font-size: 0.9em;
+        }
+
+        /* MEDIA QUERIES PARA RESPONSIVIDADE (MOBILE) */
+        /* Para telas menores que 768px (tablets e celulares) */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%; /* Ocupa mais largura em telas pequenas */
+                padding: 10px 0;
+            }
+            header h1 {
+                font-size: 2em; /* Reduz tamanho da fonte do título principal */
+            }
+            header p {
+                font-size: 0.9em;
+            }
+            .hero {
+                padding: 40px 15px; /* Reduz padding do hero */
+                margin-bottom: 20px;
+            }
+            .hero h2 {
+                font-size: 2.2em; /* Reduz tamanho da fonte do h2 do hero */
+            }
+            .hero p {
+                font-size: 1em; /* Reduz tamanho da fonte do parágrafo do hero */
+                margin-bottom: 20px;
+            }
+            .cta-button {
+                padding: 12px 25px; /* Ajusta padding do botão CTA */
+                font-size: 1em;
+            }
+            section {
+                padding: 25px 15px; /* Ajusta padding das seções */
+                margin-bottom: 20px;
+            }
+            .section-title {
+                font-size: 1.6em; /* Reduz tamanho dos títulos de seção */
+                margin-bottom: 20px;
+            }
+            .grid-container {
+                grid-template-columns: 1fr; /* Transforma grids em coluna única */
+                gap: 20px;
+            }
+            .card {
+                padding: 20px; /* Ajusta padding dos cards */
+            }
+            .card h3 {
+                font-size: 1.3em;
+            }
+            .card p {
+                font-size: 0.9em;
+            }
+            /* Adaptação da seção "Como Funciona" para mobile */
+            .how-it-works-step {
+                flex-direction: column; /* Empilha ícone e conteúdo */
+                text-align: center;
+                padding: 20px 15px;
+            }
+            .how-it-works-step:nth-child(even) {
+                flex-direction: column; /* Garante que fique em coluna mesmo se for par */
+            }
+            .how-it-works-step .icon-placeholder {
+                margin: 0 auto 15px auto; /* Centraliza o ícone e adiciona margem inferior */
+            }
+            .how-it-works-step .step-content h3 {
+                font-size: 1.4em;
+            }
+            .how-it-works-step .step-content p {
+                font-size: 1em;
+            }
+            .roadmap-list li {
+                font-size: 1em; /* Reduz fonte da lista de roadmap */
+                padding: 15px;
+            }
+            .roadmap-list li span {
+                font-size: 1.5em; /* Reduz tamanho do número do roadmap */
+                margin-right: 10px;
+            }
+            footer {
+                padding: 20px 0; /* Ajusta padding do rodapé */
+            }
+        }
+
+        /* Para telas menores que 480px (smartphones menores) */
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            .hero h2 {
+                font-size: 1.8em;
+            }
+            .cta-button {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+            .section-title {
+                font-size: 1.4em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>EventHub</h1>
+            <p>Conecte-se com Oportunidades</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2>EventHub: Sua Conexão com o Futuro da Inovação</h2>
+                <p>A plataforma que conecta profissionais a eventos e espaços de inovação, facilitando networking, aprendizado e crescimento.</p>
+                <a href="eventhub_dashboard_web.html" class="cta-button">Explore a Plataforma Agora!</a>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2 class="section-title">O Desafio que Resolvemos</h2>
+                <div class="grid-container">
+                    <div class="card">
+                        <h3>Tempo Perdido e Ineficiência</h3>
+                        <p>A dificuldade de encontrar eventos relevantes e acessíveis, com buscas manuais desgastantes em diversas plataformas online é ineficiente.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Oportunidades Perdidas</h3>
+                        <p>A consequente perda de oportunidades e conexões valiosas para negócios e o avanço da carreira profissional.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2 class="section-title">EventHub: A Solução Ideal</h2>
+                <div class="grid-container">
+                    <div class="card">
+                        <h3>Acessibilidade</h3>
+                        <p>Plataforma digital completa, acessível por app e site, conectando você a espaços de coworking e hubs de inovação.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Curadoria Inteligente</h3>
+                        <p>Recomendações personalizadas de eventos e espaços, facilitando a busca e o agendamento de forma eficiente.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Otimização de Tempo</h3>
+                        <p>Economize tempo significativo e encontre eventos relevantes em minutos, sem a necessidade de navegar por diversas plataformas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2 class="section-title">Como Funciona o EventHub?</h2>
+                <div class="how-it-works">
+                    <div class="how-it-works-step">
+                        <div class="icon-placeholder">1</div>
+                        <div class="step-content">
+                            <h3>Crie seu Perfil de Interesses</h3>
+                            <p>Ao se cadastrar, informe suas áreas de interesse profissional, setores de atuação e objetivos. Nosso sistema utilizará essas informações para personalizar suas recomendações.</p>
+                        </div>
+                    </div>
+                    <div class="how-it-works-step">
+                        <div class="icon-placeholder">2</div>
+                        <div class="step-content">
+                            <h3>Receba Recomendações Personalizadas</h3>
+                            <p>Nosso algoritmo de curadoria inteligente analisa seus interesses e sugere eventos, palestras, workshops e espaços de inovação (coworkings, hubs) que são realmente relevantes para você, economizando seu tempo.</p>
+                        </div>
+                    </div>
+                    <div class="how-it-works-step">
+                        <div class="icon-placeholder">3</div>
+                        <div class="step-content">
+                            <h3>Conecte-se e Amplie sua Rede</h3>
+                            <p>Participe dos eventos, interaja com outros profissionais e explore os hubs de inovação. A plataforma facilita o networking, abrindo portas para novas oportunidades e conexões valiosas.</p>
+                        </div>
+                    </div>
+                    <div class="how-it-works-step">
+                        <div class="icon-placeholder">4</div>
+                        <div class="step-content">
+                            <h3>Cresça Profissionalmente</h3>
+                            <p>Acesse conhecimentos, aprenda com experts e expanda suas habilidades através de eventos e do ambiente inovador dos hubs, impulsionando seu desenvolvimento de carreira.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2 class="section-title">Por Que Agora É o Momento Certo?</h2>
+                <div class="grid-container">
+                    <div class="card">
+                        <h3>1. Crescimento Acelerado</h3>
+                        <p>O mercado de eventos híbridos e espaços de coworking está em plena expansão.</p>
+                    </div>
+                    <div class="card">
+                        <h3>2. Matchmaking Inteligente</h3>
+                        <p>A evolução dos algoritmos de matchmaking permite conectar interesses de forma precisa e eficaz.</p>
+                    </div>
+                    <div class="card">
+                        <h3>3. Demanda por Soluções Práticas</h3>
+                        <p>Há uma crescente necessidade por soluções práticas, ágeis e on-demand no ambiente profissional.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2 class="section-title">Nossos Diferenciais Competitivos</h2>
+                <div class="grid-container">
+                    <div class="card">
+                        <h3>Algoritmos de Recomendação Avançados</h3>
+                        <p>Recomendações personalizadas de eventos e espaços, baseadas precisamente em seus interesses e necessidades.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Integração com Hubs de Inovação</h3>
+                        <p>Acesso exclusivo a uma vasta rede de espaços de coworking e hubs de inovação, facilitando a conexão com outros profissionais.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Experiência Unificada e Completa</h3>
+                        <p>Uma plataforma centralizada para encontrar eventos, reservar espaços, agendar e fazer networking, tudo em um só lugar.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2 class="section-title">Impacto Positivo para Profissionais</h2>
+                <div class="grid-container">
+                    <div class="card">
+                        <h3>Economia de Tempo</h3>
+                        <p>Redução de até 70% no tempo dedicado à busca por eventos relevantes.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Ampliação da Rede</h3>
+                        <p>Conectando-se com outros profissionais em eventos e espaços, ampliando oportunidades.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Crescimento Profissional Acelerado</h3>
+                        <p>Acessando eventos e espaços de inovação, aprendendo com experts e expandindo seus conhecimentos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2 class="section-title">Onde Estamos e Para Onde Vamos?</h2>
+                <ul class="roadmap-list">
+                    <li><span>1</span> Validação e Viabilidade do projeto.</li>
+                    <li><span>2</span> Trazer mais visibilidade para a empresa nas redes sociais.</li>
+                    <li><span>3</span> Construção de um MVP e esboço da plataforma.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="hero" style="padding: 50px 20px; margin-bottom: 0;">
+            <div class="container">
+                <h2>Sua Oportunidade de Investir no Futuro</h2>
+                <p>Junte-se ao EventHub e faça parte de uma revolução no networking profissional, impulsionando o crescimento e a inovação no mercado.</p>
+                <a href="#" class="cta-button">Saiba Mais sobre Investimento</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 EventHub. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
